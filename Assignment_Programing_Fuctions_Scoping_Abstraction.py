@@ -31,7 +31,7 @@ def view_bookings():
  
     if not bookings:
         print("No bookings found.")
-        return
+        return bookings
     
     
     for booking in bookings:
