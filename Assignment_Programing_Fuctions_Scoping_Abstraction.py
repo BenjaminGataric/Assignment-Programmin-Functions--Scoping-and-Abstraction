@@ -24,19 +24,19 @@ def view_bookings():
 • The function does not return any value including None. 
 
     '''
+    line = "------------------------------  --------------------  ---------------"
     # Example implementation (assuming bookings is a list of dictionaries)
     bookings = [
-        {"name": "Ben Gataric", "flight": "AA4565", "seats": "44f"},
-        {"name": "Vincent Ruiyang Li", "flight": "BB7890", "seats": "22b"},
-        {"name": "Devon Huynh", "flight": "CC1234", "seats": "33c"}
+        {"name": "Ben Gataric", "flight": "AA455", "seats": 4},
     ]
-    
+ 
     if not bookings:
         print("No bookings found.")
         return
     
-    print("Current Bookings:")
+    
     for booking in bookings:
-        print(f"Name: {booking['name']}\t Flight: {booking['flight']}\t Seats: {booking['seats']}")
+        print(f"Booking for {booking['name']}")
+        print(f"Flight No: {booking['flight']} Seats Booked: {booking['seats']}")
 
 view_bookings()
