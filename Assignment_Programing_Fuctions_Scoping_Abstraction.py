@@ -24,7 +24,6 @@ def view_bookings():
 • The function does not return any value including None. 
 
     '''
-    line = "------------------------------  --------------------  ---------------"
     # Example implementation (assuming bookings is a list of dictionaries)
     bookings = [
         {"name": "Ben Gataric", "flight": "AA455", "seats": 4},
