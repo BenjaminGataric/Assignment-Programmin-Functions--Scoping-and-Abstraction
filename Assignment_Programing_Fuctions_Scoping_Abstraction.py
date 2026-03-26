@@ -9,6 +9,7 @@ import os
 #Variables
 passenger_name = ""
 list_flights = []
+bookings = [{"name": "Ben Gataric", "flight": "AA455", "seats": 4},{"name": "Mario Luigi", "flight": "BB789", "seats": 99}] 
 
 #View Bookings
 def view_bookings():
@@ -29,21 +30,19 @@ def view_bookings():
 • The function does not return any value including None. 
 
     '''
-    # Example implementation (assuming bookings is a list of dictionaries)
-    bookings = [
-        {"name": "Ben Gataric", "flight": "AA455", "seats": 4},
-    ] 
-    if bookings == "":
-#    if not bookings:
+   
+  #  if bookings == "":
+    if not bookings:
         print("No bookings found.")
-        return bookings
         
     for booking in bookings:
-    #if bookings != "":
-        print(f"Booking for {booking['name']}")
-        print(f"Flight No: {booking['flight']} Seats Booked: {booking['seats']}")
+        if booking['name'] == passenger_name:
+            print(f"Bookings for {passenger_name}")
+            print(f"Flight No: {booking['flight']} Seats Booked: {booking['seats']}")
+  
 
-view_bookings()
+
+#view_bookings()
 
 #Main Function
 def main():
@@ -79,14 +78,12 @@ while flightdata == "":
                     "flight_price": items[4]
                 }
                 list_flights.append(list_flight)
-            print(f"Loaded {len(list_flights)-1} flights successfully.")
-# Test List contents
-#            for flight in list_flights:
-#                print(flight)
+            print(f"Loaded {len(list_flights)} flights successfully.")
+
     else:
         print(f'{flightdata} file is not found.')
         flightdata = ""
 
 passenger_name = input("Enter the passenger name: ")
 
-main_menu()
+view_bookings()
