@@ -10,6 +10,42 @@ import os
 passenger_name = ""
 list_flights = []
 
+
+def book_flight(name, flight_list, bookings, filename="flightstest.txt"):
+    #Getting Flight number user wishes to book
+    flight_number = input("Enter the flight number to book: ")
+    
+    #Program runs through list to see if flight is availible
+    if flight_number in flight_list["Flight Number"]:
+        #If the flight is availble program collects the number of Seats and ask the user for how many seats they wish to book
+        availible_seats = int(flight_list["Seats"])
+        number_of_seats = int(input(f"How many seats would you like to book on {flight_number}?: "))
+        
+        #Program checks to see if the flight has enough seats
+        if number_of_seats <= availible_seats:
+            
+            #Program removes the seats from the flight
+            flight_list["Seats"] = availible_seats - number_of_seats
+            
+            #Creates an empty booking dictonary
+            booking = {}
+
+            #Adds User inputs to the empty dictonary
+            booking["Name"] = name
+            booking["Flight Number"] = flight_number
+            booking["seats"] = number_of_seats
+
+            #Adds booking dictonary to booking list
+            bookings.append(booking)
+
+            #Prints a message to show a Successful booking with number of seats on the specific flight 
+            print(f"Successfylly bookied {number_of_seats} on flight {flight_number}.")
+        else:
+            #If there are not enough seats program prints message
+            print("Not enough seats")
+    else:
+        #If flight was not found program prints message
+        print("Flight not found")
 #View Bookings
 def view_bookings():
     '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''
