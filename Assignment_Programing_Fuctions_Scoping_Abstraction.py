@@ -9,9 +9,9 @@ import os
 #Variables
 passenger_name = ""
 list_flights = []
+def save_flights(flight_list, filename="flights")
 
-
-def book_flight(name, flight_list, bookings, filename="flightstest.txt"):
+def book_flight(name, flight_list, bookings, filename="flights.txt"):
     #Getting Flight number user wishes to book
     flight_number = input("Enter the flight number to book: ")
     
