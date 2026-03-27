@@ -6,11 +6,6 @@ Date:
 
 '''
 import os
-#Variables
-passenger_name = ""
-list_flights = []
-bookings = []
-
 
 def load_flights(filename):
     '''Doc String: This function loads the flight availability data from a txt file'''   
@@ -27,7 +22,7 @@ def load_flights(filename):
                 "flight_price": items[4]
             }
             list_flights.append(list_flight)
-            
+        return list_flights
 
 def view_flights(list_flights):
     print("------------------------------------------")
@@ -123,6 +118,7 @@ def view_bookings(name, bookings):
         if booking['name'] == name:
             print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
     print("")
+    return bookings
 
 #Booking Cancellation
 def cancel_booking(passenger_name, bookings, flight_list, filename):
@@ -148,6 +144,12 @@ def cancel_booking(passenger_name, bookings, flight_list, filename):
 #Main Function
 def main():
     '''Doc String: This function calls all the other functions of the reservations'''
+
+#Variables
+passenger_name = ""
+list_flights = []
+bookings = []
+
 print("-" * 50)
 print(f"Flight Booking System")
 print("-" * 50)
@@ -164,24 +166,24 @@ while flightdata == "":
 
 #input passenger name to store in bookings
 passenger_name = input("Enter the passenger name: ")
+#Decides what function to call based of user input
 #calls main menu function
 user_choice = main_menu()
-#Decides what function to call based of user input
 while user_choice != "5":
-
     if user_choice == "1":
-        #calls view flights function
         view_flights(list_flights)
+        user_choice = main_menu()
     elif user_choice == "2":
-        #calls view bookings function
         view_bookings(passenger_name, bookings)
+        user_choice = main_menu()
     elif user_choice == "3":
-        #calls book_flight function
         book_flight(passenger_name, list_flights, bookings, flightdata)
+        user_choice = main_menu()
     elif user_choice == "4":
-        #calls cancel_booking function
-        print("Devons part goes here")
+        cancel_booking(passenger_name, bookings, list_flights, flightdata)
+        user_choice = main_menu()
     elif user_choice == "5":
         print("Exiting the system. Goodbye!")
+        break
     else:
-        print("Invalid option. Please try again.")
+        print("Invalid option. Please try again")
