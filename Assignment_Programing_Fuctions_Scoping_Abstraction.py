@@ -11,6 +11,22 @@ passenger_name = ""
 list_flights = []
 bookings = []
 
+def view_flights(list_flights):
+    print("------------------------------------------")
+    print("AVAILABLE FLIGHTS")
+    print("------------------------------------------")
+    print(f"{'Flight':<10}{'From':<7}{'To':<7}{'Seats':<9}{'Price'}")
+    print("------------------------------------------")
+
+    for flight in list_flights:
+        print(f"{flight['flight_number']:<10}"
+              f"{flight['flight_from']:<7}"
+              f"{flight['flight_to']:<7}"
+              f"{flight['flight_seats']:<9}"
+              f"${float(flight['flight_price']):.2f}")
+
+    print("------------------------------------------")
+
 #Save file
 def save_flights(flight_list, filename="flights.txt"):
     #Opens and rewrites the text file with new flight information
