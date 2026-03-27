@@ -25,11 +25,11 @@ def load_flights(filename):
         return list_flights
 
 def view_flights(list_flights):
-    print("------------------------------------------")
-    print("AVAILABLE FLIGHTS")
-    print("------------------------------------------")
+    print("-" * 43)
+    print(f"{'AVAILABLE FLIGHTS':^43}")
+    print("-" * 43)
     print(f"{'Flight':<10}{'From':<7}{'To':<7}{'Seats':<9}{'Price'}")
-    print("------------------------------------------")
+    print("-" * 43)
 
     for flight in list_flights:
         print(f"{flight['flight_number']:<10}"
@@ -38,14 +38,13 @@ def view_flights(list_flights):
               f"{flight['flight_seats']:<9}"
               f"${float(flight['flight_price']):.2f}")
 
-    print("------------------------------------------")
+    print("-" * 43)
 
 
 
 def main_menu():
     #display selection menu 
-    print("Welcome to the Flight Booking System!")
-    print("1. View Flights")
+    print("\n1. View Available Flights")
     print("2. View My Bookings")
     print("3. Book a Flight")
     print("4. Cancel a Booking")
@@ -110,14 +109,12 @@ def book_flight(name, list_flights, bookings, filename):
 #View Bookings
 def view_bookings(name, bookings):
     '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''   
-    print("")
-    print(f"Bookings for {name}")
+    print(f"\nBookings for {name}")
     if not bookings:
         print("You have no bookings.")
     for booking in bookings:
         if booking['name'] == name:
             print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
-    print("")
     return bookings
 
 #Booking Cancellation
@@ -152,7 +149,7 @@ list_flights = []
 bookings = []
 
 print("-" * 50)
-print(f"Flight Booking System")
+print(f"{'Flight Booking System':^50}")
 print("-" * 50)
 flightdata = ""
 while flightdata == "":
@@ -185,6 +182,6 @@ while user_choice != "5":
         user_choice = main_menu()
     elif user_choice == "5":
         print("Exiting the system. Goodbye!")
-        break
     else:
         print("Invalid option. Please try again")
+        user_choice = main_menu()
