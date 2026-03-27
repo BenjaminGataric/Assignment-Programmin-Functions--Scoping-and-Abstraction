@@ -48,13 +48,16 @@ def view_flights(list_flights):
 
 
 def main_menu():
+    #display selection menu 
     print("Welcome to the Flight Booking System!")
     print("1. View Flights")
     print("2. View My Bookings")
     print("3. Book a Flight")
     print("4. Cancel a Booking")
     print("5. Exit")
+    #asks the user for their item seclection
     input_choice = input("Please enter your choice (1-5): ")
+    #returns the user selection for main function
     return input_choice
 
 
@@ -139,21 +142,26 @@ while flightdata == "":
             print(f'{flightdata} file is not found.')
             flightdata = ""
 
-
+#input passenger name to store in bookings
 passenger_name = input("Enter the passenger name: ")
-while passenger_name != "5":
-    user_choice = main_menu()
+#calls main menu function
+user_choice = main_menu()
+#Decides what function to call based of user input
+while user_choice != "5":
 
     if user_choice == "1":
+        #calls view flights function
         view_flights(list_flights)
     elif user_choice == "2":
+        #calls view bookings function
         view_bookings(passenger_name, bookings)
     elif user_choice == "3":
+        #calls book_flight function
         book_flight(passenger_name, list_flights, bookings, flightdata)
     elif user_choice == "4":
+        #calls cancel_booking function
         print("Devons part goes here")
     elif user_choice == "5":
         print("Exiting the system. Goodbye!")
-        break
     else:
         print("Invalid option. Please try again.")
