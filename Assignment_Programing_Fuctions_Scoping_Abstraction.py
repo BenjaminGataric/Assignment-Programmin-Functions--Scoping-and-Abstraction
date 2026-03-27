@@ -124,6 +124,26 @@ def view_bookings(name, bookings):
             print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
     print("")
 
+#Booking Cancellation
+def cancel_booking(passenger_name, bookings, flight_list, filename):
+    flight_number = input("Enter the flight number to cancel: ").upper()
+
+    for booking in bookings:
+        if bookings["passenger_name"] == passenger_name:
+            if bookings["flight_number"] == flight_number:
+                cancelled_seats = bookings["seats"]
+            for flight in flight_list:
+                if flight_list["flight_number"] == flight_number:
+                    flight["available_seats"] += cancelled_seats
+                    break
+            with open(filename, "w") as f:
+                for flight_list in flight_list:
+                    filename.write(f"{flight['flight_number']},{flight['available_seats']}\n")
+
+            bookings.remove(booking)
+            print(f"Successfully cancelled booking for flight {flight_number}")
+    else:
+        print("No booking found for the given flight number.")
 
 #Main Function
 def main():
