@@ -101,10 +101,10 @@ def book_flight(name, list_flights, bookings, filename):
             #Prints a message to show a Successful booking with number of seats on the specific flight 
             print(f"Successfully booked {number_of_seats} on flight {flight_number}.")
         else:
-            print("Not enough seats")
+            print("Not enough seats available.")
             
     else:
-        print("Flight not found")
+        print("Flight not found.")
         
 #View Bookings
 def view_bookings(name, bookings):
