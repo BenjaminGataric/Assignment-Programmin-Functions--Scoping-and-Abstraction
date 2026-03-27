@@ -50,7 +50,7 @@ def main_menu():
     print("4. Cancel a Booking")
     print("5. Exit")
     #asks the user for their item seclection
-    input_choice = input("Please enter your choice (1-5): ")
+    input_choice = input("Choose an option: ")
     #returns the user selection for main function
     return input_choice
 
