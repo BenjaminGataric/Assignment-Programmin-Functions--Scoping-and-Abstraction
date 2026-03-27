@@ -10,32 +10,24 @@ import os
 passenger_name = ""
 list_flights = []
 bookings = []
-flightdata = ""
 
-def load_flights():
+
+def load_flights(filename):
     '''Doc String: This function loads the flight availability data from a txt file'''   
-    flightdata = ""
     #Open Flight Data File and show the contents
-    while flightdata == "":
-        flightdata = input(f"Enter the flight data file name (e.g., flights.txt):  ")
-        if os.path.exists(flightdata):
-            with open(flightdata) as f:
-                print("Loading flight data...")
-                for line in f:
-                    items = line.rstrip().split(',')
-                    list_flight = {
-                        "flight_number": items[0],
-                        "flight_from": items[1],
-                        "flight_to": items[2],
-                        "flight_seats": items[3],
-                        "flight_price": items[4]
-                    }
-                    list_flights.append(list_flight)
-            print(f"Loaded {len(list_flights)} flights successfully.")
-
-        else:
-            print(f'{flightdata} file is not found.')
-            flightdata = ""
+    with open(filename) as f:
+        print("Loading flight data...")
+        for line in f:
+            items = line.rstrip().split(',')
+            list_flight = {
+                "flight_number": items[0],
+                "flight_from": items[1],
+                "flight_to": items[2],
+                "flight_seats": items[3],
+                "flight_price": items[4]
+            }
+            list_flights.append(list_flight)
+            
 
 def view_flights(list_flights):
     print("------------------------------------------")
@@ -119,11 +111,13 @@ def book_flight(name, list_flights, bookings, filename):
         
 #View Bookings
 def view_bookings(name, bookings):
-    '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''        
-    print("")
-    print(f"Bookings for {name}")
+    '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''   
+  #  if bookings == "":
     if not bookings:
         print("You have no bookings.")
+    else:
+        print("")
+        print(f"Bookings for {name}")
     for booking in bookings:
         if booking['name'] == name:
             print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
@@ -136,8 +130,17 @@ def main():
 print("-" * 50)
 print(f"Flight Booking System")
 print("-" * 50)
+flightdata = ""
+while flightdata == "":
+        flightdata = input(f"Enter the flight data file name (e.g., flights.txt):  ")
+        if os.path.exists(flightdata):
+            load_flights(flightdata)
+            print(f"Loaded {len(list_flights)} flights successfully.")
 
-load_flights()
+        else:
+            print(f'{flightdata} file is not found.')
+            flightdata = ""
+
 
 passenger_name = input("Enter the passenger name: ")
 while passenger_name != "5":
@@ -154,3 +157,5 @@ while passenger_name != "5":
     elif user_choice == "5":
         print("Exiting the system. Goodbye!")
         break
+    else:
+        print("Invalid option. Please try again.")
