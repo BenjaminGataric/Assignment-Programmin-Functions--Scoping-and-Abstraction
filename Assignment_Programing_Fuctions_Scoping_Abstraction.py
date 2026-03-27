@@ -27,6 +27,19 @@ def view_flights(list_flights):
 
     print("------------------------------------------")
 
+
+
+def main_menu():
+    print("Welcome to the Flight Booking System!")
+    print("1. View Flights")
+    print("2. View My Bookings")
+    print("3. Book a Flight")
+    print("4. Cancel a Booking")
+    print("5. Exit")
+    input_choice = input("Please enter your choice (1-5): ")
+    return input_choice
+
+
 #Save file
 def save_flights(flight_list, filename):
     #Opens and rewrites the text file with new flight information
@@ -79,15 +92,15 @@ def book_flight(name, list_flights, bookings, filename):
         print("Flight not found")
         
 #View Bookings
-def view_bookings():
+def view_bookings(name, bookings):
     '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''   
   #  if bookings == "":
     if not bookings:
         print("You have no bookings.")
         
     for booking in bookings:
-        if booking['name'] == passenger_name:
-            print(f"Bookings for {passenger_name}")
+        if booking['name'] == name:
+            print(f"Bookings for {name}")
             print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
 
 #Main Function
@@ -123,6 +136,17 @@ while flightdata == "":
         flightdata = ""
 
 passenger_name = input("Enter the passenger name: ")
-print(list_flights)
-book_flight(passenger_name, list_flights, bookings, flightdata)
-view_bookings()
+while passenger_name != "5":
+    user_choice = main_menu()
+
+    if user_choice == "1":
+        view_flights(list_flights)
+    elif user_choice == "2":
+        view_bookings(passenger_name, bookings)
+    elif user_choice == "3":
+        book_flight(passenger_name, list_flights, bookings, flightdata)
+    elif user_choice == "4":
+        print("Devons part goes here")
+    elif user_choice == "5":
+        print("Exiting the system. Goodbye!")
+        break
