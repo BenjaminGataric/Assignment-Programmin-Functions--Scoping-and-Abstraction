@@ -10,6 +10,32 @@ import os
 passenger_name = ""
 list_flights = []
 bookings = []
+flightdata = ""
+
+def load_flights():
+    '''Doc String: This function loads the flight availability data from a txt file'''   
+    flightdata = ""
+    #Open Flight Data File and show the contents
+    while flightdata == "":
+        flightdata = input(f"Enter the flight data file name (e.g., flights.txt):  ")
+        if os.path.exists(flightdata):
+            with open(flightdata) as f:
+                print("Loading flight data...")
+                for line in f:
+                    items = line.rstrip().split(',')
+                    list_flight = {
+                        "flight_number": items[0],
+                        "flight_from": items[1],
+                        "flight_to": items[2],
+                        "flight_seats": items[3],
+                        "flight_price": items[4]
+                    }
+                    list_flights.append(list_flight)
+            print(f"Loaded {len(list_flights)} flights successfully.")
+
+        else:
+            print(f'{flightdata} file is not found.')
+            flightdata = ""
 
 def view_flights(list_flights):
     print("------------------------------------------")
@@ -97,43 +123,23 @@ def view_bookings(name, bookings):
   #  if bookings == "":
     if not bookings:
         print("You have no bookings.")
-        
+    else:
+        print("")
+        print(f"Bookings for {name}")
     for booking in bookings:
         if booking['name'] == name:
-            print(f"Bookings for {name}")
             print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
+    print("")
+
 
 #Main Function
 def main():
     '''Doc String: This function calls all the other functions of the reservations'''
-    '''It continuously displays the main menu until the user chooses to exit (option 5). 
-    •	It calls corresponding functions based on user selection 
-    •	It displays an invalid input message if the user selects an invalid option '''
 print("-" * 50)
 print(f"Flight Booking System")
 print("-" * 50)
-flightdata = ""
-#Open Flight Data File and show the contents
-while flightdata == "":
-    flightdata = input(f"Enter the flight data file name (e.g., flights.txt):  ")
-    if os.path.exists(flightdata):
-        with open(flightdata) as f:
-            print("Loading flight data...")
-            for line in f:
-                items = line.rstrip().split(',')
-                list_flight = {
-                    "flight_number": items[0],
-                    "flight_from": items[1],
-                    "flight_to": items[2],
-                    "flight_seats": items[3],
-                    "flight_price": items[4]
-                }
-                list_flights.append(list_flight)
-        print(f"Loaded {len(list_flights)} flights successfully.")
 
-    else:
-        print(f'{flightdata} file is not found.')
-        flightdata = ""
+load_flights()
 
 passenger_name = input("Enter the passenger name: ")
 while passenger_name != "5":
