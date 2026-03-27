@@ -136,8 +136,8 @@ def cancel_booking(passenger_name, bookings, flight_list, filename):
             
                 print(f"Successfully cancelled booking for flight {flight_number}\n")
                 
-    else:
-        print(f"No booking found for the given flight number.\n")
+        else:
+            print(f"No booking found for the given flight number.\n")
 
 #Main Function
 def main():
