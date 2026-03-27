@@ -153,7 +153,7 @@ print(f"{'Flight Booking System':^50}")
 print("-" * 50)
 flightdata = ""
 while flightdata == "":
-        flightdata = input(f"Enter the flight data file name (e.g., flights.txt):  ")
+        flightdata = input(f"Enter the flight data file name (e.g., flights.txt): ")
         if os.path.exists(flightdata):
             load_flights(flightdata)
             print(f"Loaded {len(list_flights)} flights successfully.")
