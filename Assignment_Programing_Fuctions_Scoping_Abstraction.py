@@ -114,7 +114,7 @@ def view_bookings(name, bookings):
         print("You have no bookings.")
     for booking in bookings:
         if booking['name'] == name:
-            print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
+            print(f"Flight No: {booking['flight number']}, Seats Booked: {booking['seats']}")
     return bookings
 
 #Booking Cancellation
