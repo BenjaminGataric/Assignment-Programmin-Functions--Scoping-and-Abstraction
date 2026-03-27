@@ -36,9 +36,11 @@ def book_flight(name, flight_list, bookings, filename="flights.txt"):
             booking = {}
 
             #Adds User inputs to the empty dictonary
-            booking["Name"] = name
-            booking["Flight Number"] = flight_number
-            booking["seats"] = number_of_seats
+            booking = {
+                "Name": name,
+                "Flight Number": flight_number,
+                "Seats": number_of_seats
+            }
 
             #Adds booking dictonary to booking list
             bookings.append(booking)
