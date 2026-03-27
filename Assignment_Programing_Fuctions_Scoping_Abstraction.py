@@ -129,13 +129,13 @@ def cancel_booking(passenger_name, bookings, flight_list, filename):
                     if flight["flight_number"] == flight_number:
                         new_seats = int(flight["flight_seats"]) + cancelled_seats
                         flight["flight_seats"] = str(new_seats)
-                        break
+                        
                     
                 save_flights(flight_list, filename)
                 bookings.remove(booking)
             
                 print(f"Successfully cancelled booking for flight {flight_number}\n")
-                break
+                
     else:
         print(f"No booking found for the given flight number.\n")
 
