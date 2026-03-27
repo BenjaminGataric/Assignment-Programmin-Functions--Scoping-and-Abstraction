@@ -13,7 +13,7 @@ bookings = []
 
 #Save file
 def save_flights(flight_list, filename="flights.txt"):
-    #Opens and rewrites the text file with new fligth information
+    #Opens and rewrites the text file with new flight information
     with open(filename, "w") as f:
         for f_data in flight_list:
             line = f"{f_data['flight_number']},{f_data['flight_from']},{f_data['flight_to']},{f_data['flight_seats']},{f_data['flight_price']}\n"
