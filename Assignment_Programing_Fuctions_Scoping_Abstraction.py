@@ -10,7 +10,11 @@ import os
 passenger_name = ""
 list_flights = []
 bookings = [{"name": "Ben Gataric", "flight": "AA455", "seats": 4},{"name": "Mario Luigi", "flight": "BB789", "seats": 99}] 
-def save_flights(flight_list, filename="flights")
+def save_flights(flight_list, filename="flights.txt"):
+    with open(filename, "w") as f:
+        for f_data in flight_list:
+            line = f"{f_data['flight_number']},{f_data['flight_from']},{f_data['flight_to']},{f_data['flight_seats']},{f_data['flight_price']}\n"
+            f.write(line)
 
 def book_flight(name, flight_list, bookings, filename="flights.txt"):
     #Getting Flight number user wishes to book
