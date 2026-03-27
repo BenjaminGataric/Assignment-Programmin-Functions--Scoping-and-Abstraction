@@ -119,13 +119,11 @@ def book_flight(name, list_flights, bookings, filename):
         
 #View Bookings
 def view_bookings(name, bookings):
-    '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''   
-  #  if bookings == "":
+    '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''        
+    print("")
+    print(f"Bookings for {name}")
     if not bookings:
         print("You have no bookings.")
-    else:
-        print("")
-        print(f"Bookings for {name}")
     for booking in bookings:
         if booking['name'] == name:
             print(f"Flight No: {booking['flight number']} Seats Booked: {booking['seats']}")
