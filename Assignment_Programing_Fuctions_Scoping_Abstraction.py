@@ -1,8 +1,8 @@
 '''
-Program Name:
-Description:
+Program Name: Flight Booking System
+Description: This program allows the user to load a flights list, add a passenger, buy seats, remove seats from user, and shows the information about the passenger, including flight number, seats and time of departure and arrive.
 Authors: Ben Gataric, Vincent Ruiyang Li, Lelandi Calil De Assis, Devon Huynh
-Date:
+Date: March 27 2026
 
 '''
 import os
