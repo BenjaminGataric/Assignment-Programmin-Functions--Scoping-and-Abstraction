@@ -72,7 +72,7 @@ def book_flight(name, list_flights, bookings, filename):
     for flight in list_flights:
         if flight['flight_number'] == flight_number:
             flight_found = flight
-            break
+            
     
     if flight_found != " ":
         #If the flight is availble program collects the number of Seats and ask the user for how many seats they wish to book
