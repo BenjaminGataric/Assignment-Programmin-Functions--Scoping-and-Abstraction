@@ -23,14 +23,14 @@ def book_flight(name, flight_list, bookings, filename="flights.txt"):
     #Getting Flight number user wishes to book
     flight_number = input("Enter the flight number to book: ").upper()
     
-    #Program runs through list to see if flight is available
-    flight_found = None
+    #Program runs through list to see if flight is availible
+    flight_found = " "
     for flight in flight_list:
         if flight['flight_number'] == flight_number:
             flight_found = flight
             break
     
-    if flight_found is not None:
+    if flight_found == flight_number:
         #If the flight is availble program collects the number of Seats and ask the user for how many seats they wish to book
         number_of_seats = int(input(f"How many seats would you like to book on {flight_number}?: "))
     
