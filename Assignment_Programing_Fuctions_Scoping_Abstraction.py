@@ -38,13 +38,14 @@ def book_flight(name, list_flights, bookings, filename="flights.txt"):
         if number_of_seats <= int(flight_found['flight_seats']):
         
             #Program removes the seats from the flight
-            flight_found['flight_seats'] = str(int(flight_found['flight_seats']) - number_of_seats)
+            new_seats = int(flight_found['flight_seats']) - number_of_seats
+            flight_found['flight_seats'] = str(new_seats)
         
-            #Creates a booking dictionary with Users name, flight number and the amount of seats they booked 
+            #Creates a booking dictionary with Users name, flight number and the amount of seats they booked
             booking = {
                 "name": name,
                 "flight number": flight_number,
-                "seats": number_of_seats 
+                "seats": number_of_seats
             }
 
             #Adds booking dictonary to booking list
