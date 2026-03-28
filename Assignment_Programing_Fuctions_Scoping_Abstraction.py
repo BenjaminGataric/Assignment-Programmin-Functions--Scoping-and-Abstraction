@@ -33,17 +33,13 @@ def view_flights(list_flights):
     print("-" * 42)
     print(f"{'Flight':<10}{'From':<7}{'To':<7}{'Seats':<9}{'Price'}")
     print("-" * 42)
-
     for flight in list_flights:
         print(f"{flight['flight_number']:<10}"
               f"{flight['flight_from']:<7}"
               f"{flight['flight_to']:<7}"
               f"{flight['flight_seats']:<9}"
               f"${float(flight['flight_price']):.2f}")
-
     print("-" * 42)
-
-
 
 def main_menu():
     #display selection menu 
@@ -124,8 +120,6 @@ def cancel_booking(passenger_name, bookings, flight_list, filename):
                     if flight["flight_number"] == flight_number:
                         new_seats = int(flight["flight_seats"]) + cancelled_seats
                         flight["flight_seats"] = str(new_seats)
-                        
-                    
                 save_flights(flight_list, filename)
                 bookings.remove(booking)
             
@@ -137,8 +131,6 @@ def cancel_booking(passenger_name, bookings, flight_list, filename):
 #Main Function
 def main():
     '''Doc String: This function calls all the other functions of the reservations'''
-
-
     print("-" * 50)
     print(f"{'Flight Booking System':^50}")
     print("-" * 50)
@@ -148,15 +140,14 @@ def main():
             if os.path.exists(flightdata):
                 load_flights(flightdata)
                 print(f"Loaded {len(list_flights)} flights successfully.")
-
             else:
                 print(f'{flightdata} file is not found.')
                 flightdata = ""
 
-#input passenger name to store in bookings
+    #input passenger name to store in bookings
     passenger_name = input("Enter the passenger name: ")
-#Decides what function to call based of user input
-#calls main menu function
+    #Decides what function to call based of user input
+    #calls main menu function
     user_choice = main_menu()
     while user_choice != 1:
         if user_choice == "1":
