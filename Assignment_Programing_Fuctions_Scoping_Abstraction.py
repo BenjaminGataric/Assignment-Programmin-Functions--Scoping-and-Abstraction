@@ -173,7 +173,7 @@ def main():
             user_choice = main_menu()
         elif user_choice == "5":
             print("Exiting the system. Goodbye!")
-            break
+            return
         else:
             print("Invalid option. Please try again")
             user_choice = main_menu()
