@@ -28,11 +28,11 @@ def load_flights(filename):
         return list_flights
 
 def view_flights(list_flights):
-    print("-" * 43)
-    print(f"{'AVAILABLE FLIGHTS':^43}")
-    print("-" * 43)
+    print("-" * 42)
+    print(f"{'AVAILABLE FLIGHTS':^40}")
+    print("-" * 42)
     print(f"{'Flight':<10}{'From':<7}{'To':<7}{'Seats':<9}{'Price'}")
-    print("-" * 43)
+    print("-" * 42)
 
     for flight in list_flights:
         print(f"{flight['flight_number']:<10}"
@@ -41,7 +41,7 @@ def view_flights(list_flights):
               f"{flight['flight_seats']:<9}"
               f"${float(flight['flight_price']):.2f}")
 
-    print("-" * 43)
+    print("-" * 42)
 
 
 
