@@ -1,10 +1,10 @@
 '''
-Program Name: 
-Description: 
+Program Name: Flight Bbooking System
+Description: This program allows the user to load a flights list, add passenger, buy seats, remove seats from user, and shows the information about the passenger, including flight number, seats and time of departure, and arrival.
 Authors: Ben Gataric, Vincent Ruiyang Li, Lelandi Calil De Assis, Devon Huynh 
-Date: 
-
+Date: March 2, 2026
 '''
+
 import os
 #Variables
 list_flights = []
