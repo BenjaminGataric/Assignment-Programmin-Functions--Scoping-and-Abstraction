@@ -28,7 +28,7 @@ def load_flights(filename):
         return list_flights
 
 def view_flights(list_flights):
-    print("-" * 42)
+    print("\n------------------------------------------")
     print(f"{'AVAILABLE FLIGHTS':^40}")
     print("-" * 42)
     print(f"{'Flight':<10}{'From':<7}{'To':<7}{'Seats':<9}{'Price'}")
@@ -43,7 +43,7 @@ def view_flights(list_flights):
 
 def main_menu():
     #display selection menu 
-    print("1. View Available Flights")
+    print("\n1. View Available Flights")
     print("2. View My Bookings")
     print("3. Book a Flight")
     print("4. Cancel a Booking")
@@ -59,7 +59,7 @@ def save_flights(flight_list, filename):
     #Opens and rewrites the text file with new flight information
     with open(filename, "w") as f:
         for f_data in flight_list:
-            line = f"{f_data['flight_number']},{f_data['flight_from']},{f_data['flight_to']},{f_data['flight_seats']},{f_data['flight_price']}\n"
+            line = f"{f_data['flight_number']},{f_data['flight_from']},{f_data['flight_to']},{f_data['flight_seats']},{f_data['flight_price']}"
             f.write(line)
 
 def book_flight(name, list_flights, bookings, filename):
@@ -90,20 +90,20 @@ def book_flight(name, list_flights, bookings, filename):
                 save_flights(list_flights, filename)
                 print(f"Successfully booked {requested_seats} seats on {flight_number}.")
             else:
-                print("Not enough seats available.\n")
+                print("Not enough seats available.")
             break
     else:
-        print("Flight not found.\n")
+        print("Flight not found.")
         
 #View Bookings
 def view_bookings(name, bookings):
     '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''   
     print(f"\nBookings for {name}")
     if not bookings:
-        print("You have no bookings.\n")
+        print("You have no bookings.")
     for booking in bookings:
         if booking['name'] == name:
-            print(f"Flight No: {booking['flight number']}, Seats Booked: {booking['seats']}\n")
+            print(f"Flight No: {booking['flight number']}, Seats Booked: {booking['seats']}")
     return bookings
 
 #Booking Cancellation
@@ -126,7 +126,7 @@ def cancel_booking(passenger_name, bookings, flight_list, filename):
                 print(f"Successfully cancelled booking for flight {flight_number}\n")
                 break        
     else:
-        print(f"No booking found for the given flight number.\n")
+        print(f"No booking found for the given flight number.")
 
 #Main Function
 def main():
