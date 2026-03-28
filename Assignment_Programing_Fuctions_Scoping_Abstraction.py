@@ -47,7 +47,7 @@ def view_flights(list_flights):
 
 def main_menu():
     #display selection menu 
-    print("\n1. View Available Flights")
+    print("1. View Available Flights")
     print("2. View My Bookings")
     print("3. Book a Flight")
     print("4. Cancel a Booking")
@@ -102,12 +102,12 @@ def book_flight(name, list_flights, bookings, filename):
             save_flights(list_flights, filename)
 
             #Prints a message to show a Successful booking with number of seats on the specific flight 
-            print(f"Successfully booked {number_of_seats} on flight {flight_number}.")
+            print(f"Successfully booked {number_of_seats} on flight {flight_number}.\n")
         else:
             print("Not enough seats available.")
             
     else:
-        print("Flight not found.")
+        print("Flight not found.\n")
         
 #View Bookings
 def view_bookings(name, bookings):
@@ -117,7 +117,7 @@ def view_bookings(name, bookings):
         print("You have no bookings.")
     for booking in bookings:
         if booking['name'] == name:
-            print(f"Flight No: {booking['flight number']}, Seats Booked: {booking['seats']}")
+            print(f"Flight No: {booking['flight number']}, Seats Booked: {booking['seats']}\n")
     return bookings
 
 #Booking Cancellation
@@ -168,7 +168,7 @@ def main():
 #Decides what function to call based of user input
 #calls main menu function
     user_choice = main_menu()
-    while user_choice != "5":
+    while user_choice != 1:
         if user_choice == "1":
             view_flights(list_flights)
             user_choice = main_menu()
@@ -183,6 +183,7 @@ def main():
             user_choice = main_menu()
         elif user_choice == "5":
             print("Exiting the system. Goodbye!")
+            break
         else:
             print("Invalid option. Please try again")
             user_choice = main_menu()
