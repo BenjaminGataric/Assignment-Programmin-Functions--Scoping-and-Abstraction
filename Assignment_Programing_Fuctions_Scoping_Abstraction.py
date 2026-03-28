@@ -28,11 +28,12 @@ def load_flights(filename):
         return list_flights
 
 def view_flights(list_flights):
-    print("-" * 42)
-    print(f"{'AVAILABLE FLIGHTS':^42}")
-    print("-" * 42)
+    print("-" * 43)
+    print(f"{'AVAILABLE FLIGHTS':^43}")
+    print("-" * 43)
     print(f"{'Flight':<10}{'From':<7}{'To':<7}{'Seats':<9}{'Price'}")
-    print("-" * 42)
+    print("-" * 43)
+
     for flight in list_flights:
         print(f"{flight['flight_number']:<10}"
               f"{flight['flight_from']:<7}"
@@ -40,7 +41,7 @@ def view_flights(list_flights):
               f"{flight['flight_seats']:<9}"
               f"${float(flight['flight_price']):.2f}")
 
-    print("-" * 42)
+    print("-" * 43)
 
 
 
@@ -66,45 +67,35 @@ def save_flights(flight_list, filename):
             f.write(line)
 
 def book_flight(name, list_flights, bookings, filename):
-    #Getting Flight number user wishes to book
     flight_number = input("Enter the flight number to book: ").upper()
-    
-    #Program runs through list to see if flight is availible
-    flight_found = " "
+    # Program goes through the flight list to see if the flight is available
     for flight in list_flights:
         if flight['flight_number'] == flight_number:
-            flight_found = flight
+            # Stores requested seats and the available flight seats into variables
+            requested_seats = int(input(f"How many seats for {flight_number}?: "))
+            available_seats = int(flight['flight_seats'])
             
-    
-    if flight_found != " ":
-        #If the flight is availble program collects the number of Seats and ask the user for how many seats they wish to book
-        number_of_seats = int(input(f"How many seats would you like to book on {flight_number}?: "))
-    
-        #Program checks to see if the flight has enough seats
-        if number_of_seats <= int(flight_found['flight_seats']):
-        
-            #Program removes the seats from the flight
-            new_seats = int(flight_found['flight_seats']) - number_of_seats
-            flight_found['flight_seats'] = str(new_seats)
-        
-            #Creates a booking dictionary with Users name, flight number and the amount of seats they booked
-            booking = {
-                "name": name,
-                "flight number": flight_number,
-                "seats": number_of_seats
-            }
+            # Program checks if seats are available
+            if requested_seats <= available_seats:
+                # Program updates seats in flight list
+                flight['flight_seats'] = str(available_seats - requested_seats)
+                
+                # Creates a booking dictionary to store user data
+                booking = {
+                    "name": name,
+                    "flight number": flight_number,
+                    "seats": requested_seats
+                }
 
-            #Adds booking dictonary to booking list
-            bookings.append(booking)
-
-            #Saves updated data to txt file
-            save_flights(list_flights, filename)
-
-            #Prints a message to show a Successful booking with number of seats on the specific flight 
-            print(f"Successfully booked {number_of_seats} on flight {flight_number}.\n")
-        else:
-            print(f"Not enough seats available.\n")
-            
+                # Adds Dictionary to the booking list
+                bookings.append(booking)
+                
+                # Saves changes to flights.txt
+                save_flights(list_flights, filename)
+                print(f"Successfully booked {requested_seats} seats on {flight_number}.")
+            else:
+                print("Not enough seats available.\n")
+            break
     else:
         print("Flight not found.\n")
         
@@ -184,7 +175,7 @@ def main():
             print("Exiting the system. Goodbye!")
             break
         else:
-            print(f"Invalid option. Please try again\n")
+            print("Invalid option. Please try again")
             user_choice = main_menu()
 
 # Calls the main function
