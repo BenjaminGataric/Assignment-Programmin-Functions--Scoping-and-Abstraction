@@ -114,7 +114,7 @@ def view_bookings(name, bookings):
     '''Doc String: This function shows the bookings of a passenger flight and the seats related to the booking'''   
     print(f"\nBookings for {name}")
     if not bookings:
-        print("You have no bookings.")
+        print("You have no bookings.\n")
     for booking in bookings:
         if booking['name'] == name:
             print(f"Flight No: {booking['flight number']}, Seats Booked: {booking['seats']}\n")
