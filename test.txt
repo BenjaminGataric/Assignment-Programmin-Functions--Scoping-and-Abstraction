@@ -1,0 +1,190 @@
+Test 1:
+
+--------------------------------------------------
+              Flight Booking System
+--------------------------------------------------
+Enter the flight data file name (e.g., flights.txt): hamdy.txt
+hamdy.txt file is not found.
+Enter the flight data file name (e.g., flights.txt): flights.txt
+Loading flight data...
+Loaded 5 flights successfully.
+Enter the passenger name: Hamdy Ibrahim
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 
+
+Test 2:
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 6
+Invalid option. Please try again
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 1
+-------------------------------------------
+             AVAILABLE FLIGHTS
+-------------------------------------------
+Flight    From   To     Seats    Price
+-------------------------------------------
+AA101     JFK    LAX    100      $299.99
+UA202     ORD    MIA    79       $189.50
+DL303     DFW    SFO    60       $349.00
+WN404     BOS    SEA    110      $275.75
+NK505     ATL    LAS    95       $239.99
+-------------------------------------------
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option:
+
+
+Test 3:
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 2
+
+Bookings for Hamdy Ibrahim
+You have no bookings.
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option:
+
+
+Test 4:
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 3
+Enter the flight number to book: H999
+Flight not found.
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option:
+
+Test 5:
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 3
+Enter the flight number to book: AA101
+How many seats would you like to book on AA101?: 200
+Not enough seats available.
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 3
+Enter the flight number to book: AA101
+How many seats would you like to book on AA101?: 2
+Successfully booked 2 on flight AA101.
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 3
+Enter the flight number to book: UA202
+How many seats would you like to book on UA202?: 3
+Successfully booked 3 on flight UA202.
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 2
+
+Bookings for Hamdy Ibrahim
+Flight No: AA101, Seats Booked: 2
+Flight No: UA202, Seats Booked: 3
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option:
+
+Test 6:
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 4
+Enter the flight number to cancel: H333
+No booking found for the given flight number.
+
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option:
+
+Test 7:
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 4
+Enter the flight number to cancel: AA101
+Successfully cancelled booking for flight AA101
+
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 2
+
+Bookings for Hamdy Ibrahim
+Flight No: UA202, Seats Booked: 3
+
+1. View Available Flights
+2. View My Bookings
+3. Book a Flight
+4. Cancel a Booking
+5. Exit
+Choose an option: 5
