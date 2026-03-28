@@ -6,6 +6,9 @@ Date:
 
 '''
 import os
+#Variables
+list_flights = []
+bookings = []
 
 def load_flights(filename):
     '''Doc String: This function loads the flight availability data from a txt file'''   
@@ -145,45 +148,45 @@ def cancel_booking(passenger_name, bookings, flight_list, filename):
 def main():
     '''Doc String: This function calls all the other functions of the reservations'''
 
-#Variables
-passenger_name = ""
-list_flights = []
-bookings = []
 
-print("-" * 50)
-print(f"{'Flight Booking System':^50}")
-print("-" * 50)
-flightdata = ""
-while flightdata == "":
-        flightdata = input(f"Enter the flight data file name (e.g., flights.txt): ")
-        if os.path.exists(flightdata):
-            load_flights(flightdata)
-            print(f"Loaded {len(list_flights)} flights successfully.")
+    print("-" * 50)
+    print(f"{'Flight Booking System':^50}")
+    print("-" * 50)
+    flightdata = ""
+    while flightdata == "":
+            flightdata = input(f"Enter the flight data file name (e.g., flights.txt): ")
+            if os.path.exists(flightdata):
+                load_flights(flightdata)
+                print(f"Loaded {len(list_flights)} flights successfully.")
 
-        else:
-            print(f'{flightdata} file is not found.')
-            flightdata = ""
+            else:
+                print(f'{flightdata} file is not found.')
+                flightdata = ""
 
 #input passenger name to store in bookings
-passenger_name = input("Enter the passenger name: ")
+    passenger_name = input("Enter the passenger name: ")
 #Decides what function to call based of user input
 #calls main menu function
-user_choice = main_menu()
-while user_choice != "5":
-    if user_choice == "1":
-        view_flights(list_flights)
-        user_choice = main_menu()
-    elif user_choice == "2":
-        view_bookings(passenger_name, bookings)
-        user_choice = main_menu()
-    elif user_choice == "3":
-        book_flight(passenger_name, list_flights, bookings, flightdata)
-        user_choice = main_menu()
-    elif user_choice == "4":
-        cancel_booking(passenger_name, bookings, list_flights, flightdata)
-        user_choice = main_menu()
-    elif user_choice == "5":
-        print("Exiting the system. Goodbye!")
-    else:
-        print("Invalid option. Please try again")
-        user_choice = main_menu()
+    user_choice = main_menu()
+    while user_choice != "5":
+        if user_choice == "1":
+            view_flights(list_flights)
+            user_choice = main_menu()
+        elif user_choice == "2":
+            view_bookings(passenger_name, bookings)
+            user_choice = main_menu()
+        elif user_choice == "3":
+            book_flight(passenger_name, list_flights, bookings, flightdata)
+            user_choice = main_menu()
+        elif user_choice == "4":
+            cancel_booking(passenger_name, bookings, list_flights, flightdata)
+            user_choice = main_menu()
+        elif user_choice == "5":
+            print("Exiting the system. Goodbye!")
+        else:
+            print("Invalid option. Please try again")
+            user_choice = main_menu()
+
+# Calls the main function
+if __name__ == '__main__':
+    main()
