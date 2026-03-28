@@ -104,7 +104,7 @@ def book_flight(name, list_flights, bookings, filename):
             #Prints a message to show a Successful booking with number of seats on the specific flight 
             print(f"Successfully booked {number_of_seats} on flight {flight_number}.\n")
         else:
-            print("Not enough seats available.")
+            print(f"Not enough seats available.\n")
             
     else:
         print("Flight not found.\n")
@@ -185,7 +185,7 @@ def main():
             print("Exiting the system. Goodbye!")
             break
         else:
-            print("Invalid option. Please try again")
+            print(f"Invalid option. Please try again\n")
             user_choice = main_menu()
 
 # Calls the main function
